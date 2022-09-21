@@ -12,15 +12,13 @@ class Solution {
         	int val = queries[i][0];
         	int index = queries[i][1];
         	if(nums[index]%2==0) {
-        		if(val%2==0) {
-        			sum += val;
-        		}else {
-        			sum-=nums[index];
-        		}
-        	}else if(val%2!=0){
-        		sum += nums[index]+val;
+        		sum-=nums[index];
         	}
         	nums[index] += val;
+        	
+        	if(nums[index]%2==0) {
+        		sum+=nums[index];
+        	}
         	answer[i] = sum;
         }
         
