@@ -1,0 +1,16 @@
+//901. Online Stock Span
+class StockSpanner {
+    Stack<int[]> stack = new Stack();
+    public StockSpanner() {
+        stack = new Stack();
+    }
+    
+    public int next(int price) {
+    	int cnt = 1;
+    	while(stack.size()>0 && stack.peek()[0] <= price) {
+    		cnt += stack.pop()[1];
+    	}
+    	stack.add(new int[]{price,cnt});
+        return cnt;
+    }
+}
