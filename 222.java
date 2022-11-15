@@ -16,17 +16,9 @@
  */
 class Solution {
     public int countNodes(TreeNode root) {
-        if(root == null) {
-			return 0;
-		}
-        
-        int cnt = 1;
-		if(root.left != null) {
-			cnt += countNodes(root.left);
-			if(root.right != null) {
-				cnt += countNodes(root.right);
-			}
-		}
+        if(root == null) return 0;
+		
+	int cnt = 1 + countNodes(root.left) + countNodes(root.right);
         return cnt;
     }
 }
